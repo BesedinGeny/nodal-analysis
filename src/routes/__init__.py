@@ -9,6 +9,6 @@ async def my_profile(data: NodalCalcRequest):
     """
     Эндпоинт для выполнения Узлового Анализа
     """
-    # Функция для выполнения узлового анализа
     from src.calculations.nodal import calc_nodal
-    pass
+    intersection = calc_nodal(data.vlp.dict(), data.ipr.dict())
+    return dict(__root__=[intersection])
